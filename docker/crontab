@@ -1,0 +1,1 @@
+* * * * * set -a; . /var/log/crontab/crontab.env; set +a; env > /var/log/crontab/crontab.env.output; [ -f /tmp/run-crontab.sh ] && bash /tmp/run-crontab.sh >> /var/log/crontab/run-crontab.sh.log 2>> /var/log/crontab/run-crontab.sh.error

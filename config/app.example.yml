@@ -1,0 +1,20 @@
+env: dev
+log_level: 'info'
+debug: true
+app_name: 'btcbot'
+syslog_ng_server: '10.11.1.1'
+
+target_token: 'EOS'
+curency_token: 'BTC'
+
+exchange_list:
+    bitfinex:
+        api_key: 'your api key'
+        api_secret: 'your api secret'
+        fee: 0.002
+
+    binance:
+        api_key: 'your api key'
+        api_secret: 'your api secret'
+        address_list:
+        fee: 0.0005
