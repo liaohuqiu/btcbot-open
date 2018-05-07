@@ -25,22 +25,24 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN conda install numpy matplotlib pandas jupyter notebook
 
-RUN pip install jinja2
-RUN pip install pyyaml==3.12
-RUN pip install cubi
-RUN pip install pygsheets
-RUN pip install requests
-RUN pip install Django
-RUN pip install websocket-client==0.40.0
-RUN pip install jupyter notebook
+RUN pip install jinja2 && \
+    pip install pyyaml==3.12 && \
+    pip install cubi && \
+    pip install pygsheets && \
+    pip install requests && \
+    pip install Django && \
+    pip install websocket-client==0.40.0 && \
+    pip install jupyter notebook
+
 RUN apt-get update && apt-get install -y python3-dev  \
         && rm -rf /var/lib/apt/lists/*
-run wget https://tenet.dl.sourceforge.net/project/ta-lib/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz
-run tar zxvf ta-lib-0.4.0-src.tar.gz
-run cd ta-lib && ./configure && make && make install
-run pip install TA-Lib
-env LD_LIBRARY_PATH /usr/local/lib
-run pip install dateparser
+
+RUN wget https://tenet.dl.sourceforge.net/project/ta-lib/ta-lib/0.4.0/ta-lib-0.4.0-src.tar.gz
+RUN tar zxvf ta-lib-0.4.0-src.tar.gz
+RUN cd ta-lib && ./configure && make && make install
+RUN pip install TA-Lib
+ENV LD_LIBRARY_PATH /usr/local/lib
+RUN pip install dateparser
 RUN pip install autobahn==17.9.3 && \
     pip install certifi==2017.11.5 && \
     pip install chardet==3.0.4 && \
